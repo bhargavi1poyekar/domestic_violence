@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:domestic_violence/register.dart';
-import 'package:domestic_violence/home.dart';
+import 'package:domestic_violence/home_sidebar.dart';
 
 class Login_Screen extends StatefulWidget {
   @override
