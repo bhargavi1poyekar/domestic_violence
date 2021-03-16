@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:domestic_violence/comments.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class Posts extends StatefulWidget {
   @override
@@ -18,6 +20,7 @@ class _PostsState extends State<Posts> {
      return Padding(
       padding:EdgeInsets.symmetric(horizontal: 10.0,vertical:5.0),
       child:Container(
+        margin:EdgeInsets.symmetric(vertical:10),
           width:double.infinity,
           height:500.0,
           decoration:BoxDecoration(
@@ -65,24 +68,30 @@ class _PostsState extends State<Posts> {
                           subtitle: Text('12:04 15th March'),
 
                         ),
-                        Container(
-                            margin:EdgeInsets.all(10.0),
-                            width:double.infinity,
-                            height:325,
-                            decoration:BoxDecoration(
-                                borderRadius: BorderRadius.circular(25.0),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black45,
-                                    offset:Offset(0,4),
-                                    blurRadius:8,
-                                  ),
-                                ],
-                                image:DecorationImage(
-                                  image:AssetImage('assets/post1.jpg'),
-                                  fit:BoxFit.fitWidth,
-                                )
-                            )
+                        InkWell(
+                          onTap:(){
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => Comments()));
+                          },
+                          child: Container(
+                              margin:EdgeInsets.all(10.0),
+                              width:double.infinity,
+                              height:325,
+                              decoration:BoxDecoration(
+                                  borderRadius: BorderRadius.circular(25.0),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black45,
+                                      offset:Offset(0,4),
+                                      blurRadius:8,
+                                    ),
+                                  ],
+                                  image:DecorationImage(
+                                    image:AssetImage('assets/post1.jpg'),
+                                    fit:BoxFit.fitWidth,
+                                  )
+                              )
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal:20.0),
@@ -116,7 +125,8 @@ class _PostsState extends State<Posts> {
                                           icon:Icon(Icons.chat),
                                           iconSize:30,
                                           onPressed:(){
-
+                                            Navigator.push(context,
+                                                MaterialPageRoute(builder: (_) => Comments()));
                                           },
                                         ),
                                         Text(
@@ -158,6 +168,7 @@ class _PostsState extends State<Posts> {
             IconButton(icon: Icon(Icons.g_translate, color:Colors.white) ,onPressed: null)
           ]
       ),
+      backgroundColor:Color(0xFFEDF0F6),
       body:ListView(
         physics:AlwaysScrollableScrollPhysics(),
         children:[
