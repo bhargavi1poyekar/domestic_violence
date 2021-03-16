@@ -1,5 +1,6 @@
+import 'package:domestic_violence/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'package:domestic_violence/main.dart';
 
 class TicTacToe extends StatefulWidget {
   @override
@@ -7,9 +8,9 @@ class TicTacToe extends StatefulWidget {
 }
 
 class _TicTacToeState extends State<TicTacToe> {
-  Color primaryColor=Color(0xff18203d);
-  Color secondaryColor = Color(0xff232c51);
-  Color logoGreen=Color(0xff25bcbb);
+  final Color primaryColor=Color(0xff18203d);
+  final Color secondaryColor = Color(0xff232c51);
+  final Color logoGreen=Color(0xff25bcbb);
 
   bool oTurn=true; //first turn is o
   List<String> displayXO=['','','','','','','','',''];
@@ -18,6 +19,7 @@ class _TicTacToeState extends State<TicTacToe> {
   int oScore=0;
   int filledBox=0;
   int consecutiveTaps=0;
+  int lastTap=DateTime.now().millisecondsSinceEpoch;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,14 +97,14 @@ class _TicTacToeState extends State<TicTacToe> {
                   GestureDetector(
 
                       onTap: () {
-                        int lastTap=DateTime.now().millisecondsSinceEpoch;
+
                         int now = DateTime.now().millisecondsSinceEpoch;
                         if (now - lastTap < 1000) {
                           consecutiveTaps+=1;
                           if (consecutiveTaps == 3){
                             consecutiveTaps = 0;
                             Navigator.push(context,
-                                MaterialPageRoute(builder: (_) => HomePage()));
+                                MaterialPageRoute(builder: (_) => Login_Screen()));
                           }
                         } else {
                           consecutiveTaps = 0;
