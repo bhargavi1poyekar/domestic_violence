@@ -26,6 +26,9 @@ class _Home_ScreenState extends State<Home_Screen> {
       appBar:AppBar(
         title:Text('Home Page'),
         backgroundColor: primaryColor,
+        actions:[
+          IconButton(icon: Icon(Icons.g_translate, color:Colors.white) ,onPressed: null)
+        ]
       ),
       body:list[index],
       drawer:MyDrawer(onTap:(ctx,i){
